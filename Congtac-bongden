@@ -1,0 +1,62 @@
+<html>
+<head>
+    <title>công tắc và bóng đèn</title>
+</head>
+<body>
+<script>
+    var Lamp = function ()
+    {
+        this.status = status;
+        this.getLampStatus = function()
+        {
+            return this.status;
+        };
+        this.turnOn_Off = function(status)
+        {
+            if (this.status == true)
+            {
+                document.write('The Lamp is On <br>');
+            }
+            else
+            {
+                document.write('The Lamp is Off <br>');
+            }
+        };
+    }
+
+    var Swich = function ()
+    {
+        this.status = status;
+        this.lamp = new Lamp();
+        this.connectToLamp = function()
+        {
+            return this.lamp.getLampStatus();
+        };
+        this.swichOn = function ()
+        {
+            this.lamp.status = true;
+            this.lamp.turnOn_Off();
+        };
+        this.swichOff = function ()
+        {
+            this.lamp.status = false;
+            this.lamp.turnOn_Off();
+        };
+    }
+    var swich = new Swich();
+    swich.connectToLamp();
+    for (let i =0;i<20;i++)
+    {
+        if (i%2==0)
+        {
+            swich.swichOn();
+        }
+        else
+        {
+            swich.swichOff();
+        }
+    }
+
+</script>
+</body>
+</html>
