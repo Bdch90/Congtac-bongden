@@ -1,0 +1,65 @@
+<html>
+<head>
+    <title>công tắc và bóng đèn</title>
+</head>
+<body>
+<img id = 'img'  src = 'http://www.webre24h.com/uploads/0815/pic_bulbon.gif' width = '100' height = '100'><br>
+<button onclick='onOrOff()'>Click to On/Off</button>
+<script>
+    var Lamp = function ()
+    {
+        this.status = status;
+        this.getLampStatus = function()
+        {
+            return this.status;
+        };
+        this.turnOn_Off = function(status)
+        {
+            if (this.status == true)
+            {
+                document.write('The Lamp is On <br>');
+            }
+            else
+            {
+                document.write('The Lamp is Off <br>');
+            }
+        };
+    }
+
+    var Swich = function ()
+    {
+        this.status = status;
+        this.lamp = new Lamp();
+        this.connectToLamp = function()
+        {
+            return this.lamp.getLampStatus();
+        };
+        this.swichOn = function ()
+        {
+            this.lamp.status = true;
+            this.lamp.turnOn_Off();
+        };
+        this.swichOff = function ()
+        {
+            this.lamp.status = false;
+            this.lamp.turnOn_Off();
+        };
+    }
+    var swich = new Swich();
+    swich.connectToLamp();
+    function onOrOff()
+    {
+        let Img = document.getElementById('img');
+        if (Img.src.match('http://www.webre24h.com/uploads/0815/pic_bulboff.gif'))
+        {
+            img.src ='http://www.webre24h.com/uploads/0815/pic_bulbon.gif';
+        }
+        else
+        {
+            img.src = 'http://www.webre24h.com/uploads/0815/pic_bulboff.gif';
+        }
+    }
+
+</script>
+</body>
+</html>
